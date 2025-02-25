@@ -1,0 +1,88 @@
+/* Background Animation */
+@keyframes moveBg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Button Hover Animation */
+@keyframes glow {
+    0% { box-shadow: 0 0 10px #00aaff; }
+    50% { box-shadow: 0 0 20px #00ffff, 0 0 30px #00aaff; }
+    100% { box-shadow: 0 0 10px #00aaff; }
+}
+
+/* Text Fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Mouse Reactive Effect */
+body::before {
+    content: '';
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(0, 170, 255, 0.3), rgba(0, 0, 0, 0.8));
+    pointer-events: none;
+    transition: background 0.1s ease-out;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(270deg, #001f3f, #002855, #003366, #004080);
+    background-size: 400% 400%;
+    animation: moveBg 10s infinite alternate ease-in-out;
+    color: #00aaff;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    background: rgba(0, 170, 255, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #00aaff;
+    width: 400px;
+    animation: fadeIn 1s ease-in-out;
+    z-index: 1;
+}
+
+button {
+    background: #00aaff;
+    color: black;
+    border: none;
+    padding: 15px 25px;
+    margin: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    background: #0088dd;
+    color: white;
+    animation: glow 1.5s infinite alternate;
+    transform: scale(1.1);
+}
+
+p {
+    font-size: 22px;
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(0, 170, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00aaff;
+    animation: fadeIn 0.8s ease-in-out;
+    color: white;
+}
